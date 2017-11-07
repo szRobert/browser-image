@@ -1,0 +1,14 @@
+/* Low resolution PC */
+@media screen and (min-width: 1024px) {
+    body{
+        background-color: rgb(225, 129, 65);
+    }
+}
+
+
+/* High resolution PC */
+@media screen and (min-width: 1200px) {
+    body{
+        background-color: rgb(225, 65, 65);
+    }
+}

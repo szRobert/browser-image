@@ -3,10 +3,9 @@ import PropTypes from 'prop-types';
 
 /* CSS-s */
 import './css/reset.css';
-import './css/base.css';
-import './css/mob.css';
-/* .... */
-import './css/hig.css';
+import './css/mobile.css';
+import './css/tablet.css';
+import './css/desktop.css';
 /* icons */
 import burger from './img/burger.png';
 
@@ -19,22 +18,22 @@ class App extends Component {
         <div className='toolbar-nav'> 
           <h1 className='title'>BrowserImage</h1>
           <a onClick='' className=''><img id='toolbar-menu--burger' src={burger} /></a>
-          <ul className='toolbar-menu'>
-            <li><button className='toolbar-menu--button' onClick=''>Open</button></li>
-            <li><button className='toolbar-menu--button' onClick=''>Save</button></li>
-          </ul>
-        </div>
-
-        <div className='functions-nav'>
-          <ul className='functions-menu'>
-            <li><button className='functions-menu--button' onClick=''>Rotate</button></li>
-            <li><button className='functions-menu--button' onClick=''>Mirroring</button></li>
-            <li><button className='functions-menu--button' onClick=''>Effects</button></li>
+          <ul className='toolbar-menu hidden'>
+            <li><a className='toolbar-menu--button' onClick=''>Open</a></li>
+            <li><a className='toolbar-menu--button' onClick=''>Save</a></li>
           </ul>
         </div>
 
         <div className='workspace-box'>
           <canvas id='mycanvas'> Ez itt egy canvas! </canvas>
+        </div>
+
+        <div className='functions-nav'>
+          <ul className='functions-menu'>
+            <li><a className='functions-menu--button' onClick=''>Rotate</a></li>
+            <li><a className='functions-menu--button' onClick=''>Mirroring</a></li>
+            <li><a className='functions-menu--button' onClick=''>Effects</a></li>
+          </ul>
         </div>
 
       </div>

@@ -1,0 +1,12 @@
+/* Portraid tablet */
+@media screen and (min-width: 480px) {
+    body{
+        background-color: rgb(65, 225, 118);
+    }
+}
+/* Landscape tablet */
+@media screen and (min-width: 768px) {
+    body{
+        background-color: rgb(164, 225, 65);
+    }
+}
