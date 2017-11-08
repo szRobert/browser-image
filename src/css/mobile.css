@@ -10,6 +10,19 @@ body{
     width: 100%;
 }
 
+.hidden {
+    width: 1px;
+    height: 1px;
+    visibility: hidden;
+}
+
+.visible {
+    widows: auto;
+    height: auto;
+    visibility: visible;
+}
+
+/* TOOLBAR NAV*/
 .toolbar-nav {
     widows: 100%;
     height: 50px;
@@ -24,7 +37,7 @@ body{
     margin: 15px 0 0 5px;
 }
 
-#toolbar-menu--burger {
+#toolbar-nav--burger {
     float: right;
     width: 42px;
     margin-top: 5px;
@@ -35,27 +48,16 @@ body{
     opacity: 0.5;
 }
 
-.hidden {
-    width: 1px;
-    height: 1px;
-    visibility: hidden;
-}
-
-.visible {
-    widows: auto;
-    height: auto;
-    visibility: visible;
-}
-
 .toolbar-menu--button {
     float:left;
     width: 100%;
     padding: 19px 0;
     background-color: #484848;
     border-top: 1px solid #222;
-    border-left: 1px solid #454545
+    border-left: 1px solid #454545;
 }
 
+/* FUNCTION NAV */
 .functions-nav {
     width: 100%;
     height: 50px;
@@ -72,6 +74,7 @@ body{
     background-color: #424242;
 }
 
+/* WORKSPACE */
 .workspace-box{
     width: 100%;
     min-height: 380px;

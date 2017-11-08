@@ -3,6 +3,45 @@
     body{
         background-color: rgb(225, 129, 65);
     }
+    /* TOOLBAR NAV */ 
+    .toolbar-nav--burger-button{
+        float: left;
+        visibility: hidden;
+        width: 1px;
+    }
+    .toolbar-menu--button {
+        float: right;
+        width: 10%;
+        padding: 18px 0;
+        background-color: transparent;
+        border: none;
+    }
+    /* WORKSPACE */
+    .workspace-box{
+        float: left;
+        width: 87%;
+    }
+
+    /* FUNCTION NAV */
+
+    .functions-nav {
+        float: right;
+        width: 12%;
+        height: 300px;
+        background-color: #393939;
+        box-shadow: 0 0 3px #111;
+    }
+    
+    .functions-menu--button {
+        width: 4%;
+        height: 40px;
+        margin: 5px 0;
+        float: none;
+    }
+    .functions-menu--button:hover {
+        background-color: #424242;
+    }
+
 }
 
 
