@@ -12,15 +12,17 @@ import burger from './img/burger.png';
 class App extends Component {
 
   render() {
+
     return (
       <div className="App">
 
         <div className='toolbar-nav'> 
           <h1 className='title'>BrowserImage</h1>
           <a onClick='' className='toolbar-nav--burger-button'><img id='toolbar-nav--burger' src={burger} /></a>
-          <ul className='toolbar-menu visible'>
-            <li><a className='toolbar-menu--button' onClick=''>Open</a></li>
-            <li><a className='toolbar-menu--button' onClick=''>Save</a></li>
+          <ul id='toolbar-menu'>
+            <input className='open-input' type='file' name='file' id='file' />
+            <li><label for='file' className='toolbar-menu--button'>Open</label></li>
+            <li><a className='toolbar-menu--button'>Save</a></li>
           </ul>
         </div>
 
@@ -28,13 +30,16 @@ class App extends Component {
           <canvas id='mycanvas'> Ez itt egy canvas! </canvas>
         </div>
 
-        <div className='functions-nav'>
-          <ul className='functions-menu'>
-            <li><a className='functions-menu--button' onClick=''>Rotate</a></li>
-            <li><a className='functions-menu--button' onClick=''>Mirroring</a></li>
-            <li><a className='functions-menu--button' onClick=''>Effects</a></li>
-          </ul>
+        <div className='fucntion-nav-box'>
+          <div className='functions-nav'>
+            <ul className='functions-menu'>
+              <li><a className='functions-menu--button' onClick=''>Rotate</a></li>
+              <li><a className='functions-menu--button' onClick=''>Mirroring</a></li>
+              <li><a className='functions-menu--button' onClick=''>Effects</a></li>
+            </ul>
+          </div>
         </div>
+
 
       </div>
     );

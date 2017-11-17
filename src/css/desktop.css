@@ -4,6 +4,10 @@
         background-color: rgb(225, 129, 65);
     }
     /* TOOLBAR NAV */ 
+    .fucntion-nav-box {
+        position: inherit;
+        width: 100%;
+    }
     .toolbar-nav--burger-button{
         float: left;
         visibility: hidden;

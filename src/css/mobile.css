@@ -10,18 +10,6 @@ body{
     width: 100%;
 }
 
-.hidden {
-    width: 1px;
-    height: 1px;
-    visibility: hidden;
-}
-
-.visible {
-    widows: auto;
-    height: auto;
-    visibility: visible;
-}
-
 /* TOOLBAR NAV*/
 .toolbar-nav {
     widows: 100%;
@@ -44,10 +32,21 @@ body{
     margin-right: 20px;
 }
 
-.toolbar-nav a:hover {
+.toolbar-nav a:hover, label:hover{
     opacity: 0.5;
 }
 
+#toolbar-menu {
+    display: block;
+}
+.open-input {
+    width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+    z-index: -1;   
+}
 .toolbar-menu--button {
     float:left;
     width: 100%;
@@ -57,7 +56,15 @@ body{
     border-left: 1px solid #454545;
 }
 
+
+
 /* FUNCTION NAV */
+.fucntion-nav-box {
+    position: absolute;
+    bottom:0;
+    width: 100%;
+}
+
 .functions-nav {
     width: 100%;
     height: 50px;
@@ -77,16 +84,15 @@ body{
 /* WORKSPACE */
 .workspace-box{
     width: 100%;
-    min-height: 380px;
-    max-height: 800px;
+    height: 100%;
 }
 
 #mycanvas {
     width: 90%;
     max-width: 1366px;
-    max-height: 768px;
+    max-height: 100%;
     margin: 10px 10px;
-    background-color: #ebeae4;
+    background-color: #c5ab16;
     box-shadow: 0 0 3px #222;
 }
 
