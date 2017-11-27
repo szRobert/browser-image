@@ -12,7 +12,7 @@ body{
 
 /* TOOLBAR NAV*/
 .toolbar-nav {
-    widows: 100%;
+    width: 100%;
     height: 50px;
     background-color: #484848;
     box-shadow: 0 1px 3px #222;
@@ -36,8 +36,8 @@ body{
     opacity: 0.5;
 }
 
-#toolbar-menu {
-    display: block;
+#toolbar-menu, .hidden {
+    display: none;
 }
 .open-input {
     width: 0.1px;
@@ -88,11 +88,8 @@ body{
 }
 
 #mycanvas {
-    width: 90%;
-    max-width: 1366px;
-    max-height: 100%;
     margin: 10px 10px;
-    background-color: #c5ab16;
+    background-color: #fff;
     box-shadow: 0 0 3px #222;
 }
 
