@@ -1,42 +1,38 @@
 import React, { Component } from 'react'
-import FileInput from 'react-file-input'
+import Dropdown from '../../../node_modules/react-dropdown'
 
 /* icons */
 import burger from '../../img/burger.png'
 
 
 class Toolbar extends Component {
-
     constructor(props){
         super(props);
-
+        this.state = {
+            open: false
+        };
     }
-
-    menuAction() {
-        function handleClick(e){
-            e.preventDefault();
-            alert('le nyilik 1x valamikor a jovoben talan');
-        }
-    }
-
-    handleChange(event) {
-    console.log('Selected file:', event.target.files[0]);
-    }
-
     render(){
+
+
         return (
             <div className='toolbar-nav'>
                 <h1 className='title'>BrowserImage</h1>
-                <a onClick={this.menuAction()} className='toolbar-nav--burger-button'><img id='toolbar-nav--burger' src={burger} /></a>
-                <ul id='toolbar-menu'>
-                    <li><form><FileInput
-                        name="myImage"
-                        accept=".png"
-                        placeholder="Open"
-                        className="inputClass"
-                        onChange={this.handleChange}
-                    /></form></li>
-                    <li><a className='toolbar-menu--button'>Save</a></li>
+                <a onClick={() => {
+                    const menu = this.refs.menu;
+                    if(this.state.open){
+                        menu.style.display = "none";
+                        this.state.open = false;
+                    } else {
+                        menu.style.display = "block";
+                        this.state.open = true;
+                    }
+
+
+                }} className='toolbar-nav--burger-button'><img id='toolbar-nav--burger' src={burger} /></a>
+                <ul ref='menu' id="toolbar-menu">
+                    <a><li className="toolbar-menu--button">Open</li></a>
+                    <a><li className="toolbar-menu--button">Save</li></a>
                 </ul>
             </div>
         )

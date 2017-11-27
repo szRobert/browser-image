@@ -13,6 +13,9 @@
         visibility: hidden;
         width: 1px;
     }
+    #toolbar-menu {
+        display: block;
+    }
     .toolbar-menu--button {
         float: right;
         width: 10%;
