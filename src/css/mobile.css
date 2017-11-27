@@ -35,9 +35,14 @@ body{
 .toolbar-nav a:hover, label:hover{
     opacity: 0.5;
 }
-
-#toolbar-menu,.hidden {
+.hidden {
     display: none;
+}
+#toolbar-menu {
+    display: none;
+    position: absolute;
+    margin-top: 50px;
+    width: 100%;
 }
 .open-input {
     width: 0.1px;
@@ -48,7 +53,6 @@ body{
     z-index: -1;   
 }
 .toolbar-menu--button {
-    float:left;
     width: 100%;
     padding: 19px 0;
     background-color: #484848;
@@ -60,7 +64,7 @@ body{
 
 /* FUNCTION NAV */
 .fucntion-nav-box {
-    position: absolute;
+    position: static;
     bottom:0;
     width: 100%;
 }
@@ -89,8 +93,37 @@ body{
 
 #mycanvas {
     margin: 10px 10px;
-    background-color: #fff;
+    background-color: #d1d1d1;
     box-shadow: 0 0 3px #222;
+}
+#rotate-box, #mirror-box, #effect-box {
+    width: 100%;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    background: #222222;
+    display: none;
+    position: absolute;
+    bottom: 50px;
+}
+.rotate-menu--button {
+    float: left;
+    width: 33%;
+    padding: 18px 0;
+}
+.mirror-menu--button{
+    float: left;
+    width: 50%;
+    padding: 18px 0;
+}
+.effect-menu--button{
+    width: 100%;
+    padding: 18px 0;
+}
+
+.rotate-menu--button:hover,
+.mirror-menu--button:hover,
+.effect-menu--button:hover{
+     background: #333;
 }
 
 /* Landscape mobile */
