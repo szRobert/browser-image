@@ -66,9 +66,11 @@ class App extends Component {
         const width = window.innerWidth-100;
         const height = window.innerHeight -125;
 
+        ctx.save();
         ctx.clearRect(0, 0, width, height);
         ctx.rotate(Math.PI/2);
-        ctx.drawImage(thisImg,0,(width*3/4+75)*-1,height,height);
+        ctx.drawImage(thisImg,0,-width+(width/7),height,height);
+        ctx.restore();
     }
     rotate180(){
         const canv = this.refs.canvas;
@@ -77,10 +79,12 @@ class App extends Component {
         const width = window.innerWidth-100;
         const height = window.innerHeight -125;
 
+        ctx.save();
         ctx.clearRect(0, 0, width, height);
         ctx.translate(width,height);
         ctx.rotate(Math.PI);
         ctx.drawImage(thisImg,0,0,width,height);
+        ctx.restore();
     }
     rotate270(){
         const canv = this.refs.canvas;
@@ -89,10 +93,12 @@ class App extends Component {
         const width = window.innerWidth-100;
         const height = window.innerHeight -125;
 
+        ctx.save();
         ctx.clearRect(0, 0, width, height);
-        ctx.translate(width/2,height);
+        ctx.translate(width,height);
         ctx.rotate((3*Math.PI)/2);
-        ctx.drawImage(thisImg,0,0,height,height);
+        ctx.drawImage(thisImg,0,-width+(width/7),height,height);
+        ctx.restore();
     }
 
     mirror(hori){
@@ -164,15 +170,12 @@ class App extends Component {
               <div ref='rotateB' id="rotate-box">
                   <ul className="rotate-menu">
                       <li className="rotate-menu--button" onClick={()=>{
-                          console.log('90.. need');
                           this.rotate90();
                       }}>90</li>
                       <li className="rotate-menu--button" onClick={()=>{
-                          console.log('180 fok');
                           this.rotate180();
                       }}>180</li>
                       <li className="rotate-menu--button" onClick={()=>{
-                          console.log('270 fok');
                           this.rotate270();
                       }}>270</li>
                   </ul>
