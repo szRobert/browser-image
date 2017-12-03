@@ -19,6 +19,7 @@ class App extends Component {
             rotate: false,
             mirror: false,
             effect: false,
+            grayscale: false,
             open: false
         };
         this.rot = {
@@ -53,9 +54,12 @@ class App extends Component {
         const canv = this.refs.canvas;
         const ctx = canv.getContext('2d');
         const thisImg = this.refs.img;
+        const width = window.innerWidth - 100;
+        const height = window.innerHeight - 125;
 
         thisImg.onload = () => {
-            ctx.drawImage(thisImg, 0, 0, window.innerWidth - 100, window.innerHeight - 125);
+            ctx.clearRect(0, 0, width, height);
+            ctx.drawImage(thisImg, 0, 0, width, height);
         };
     }
     rotate90(){
@@ -66,11 +70,18 @@ class App extends Component {
         const width = window.innerWidth-100;
         const height = window.innerHeight -125;
 
-        ctx.save();
-        ctx.clearRect(0, 0, width, height);
-        ctx.rotate(Math.PI/2);
-        ctx.drawImage(thisImg,0,-width+(width/7),height,height);
-        ctx.restore();
+        if(!this.rot.deg90){
+            ctx.save();
+            ctx.clearRect(0, 0, width, height);
+            ctx.rotate(Math.PI/2);
+            ctx.drawImage(thisImg,0,-width+(width/7),height,height);
+            ctx.restore();
+            this.rot.deg90 = true;
+        } else {
+            this.updateCanvas();
+            this.rot.deg90 = false;
+        }
+
     }
     rotate180(){
         const canv = this.refs.canvas;
@@ -79,12 +90,18 @@ class App extends Component {
         const width = window.innerWidth-100;
         const height = window.innerHeight -125;
 
-        ctx.save();
-        ctx.clearRect(0, 0, width, height);
-        ctx.translate(width,height);
-        ctx.rotate(Math.PI);
-        ctx.drawImage(thisImg,0,0,width,height);
-        ctx.restore();
+        if(!this.rot.deg180){
+            ctx.save();
+            ctx.clearRect(0, 0, width, height);
+            ctx.translate(width,height);
+            ctx.rotate(Math.PI);
+            ctx.drawImage(thisImg,0,0,width,height);
+            ctx.restore();
+            this.rot.deg180 = true;
+        } else {
+            this.updateCanvas();
+            this.rot.deg180 = false;
+        }
     }
     rotate270(){
         const canv = this.refs.canvas;
@@ -93,12 +110,19 @@ class App extends Component {
         const width = window.innerWidth-100;
         const height = window.innerHeight -125;
 
-        ctx.save();
-        ctx.clearRect(0, 0, width, height);
-        ctx.translate(width,height);
-        ctx.rotate((3*Math.PI)/2);
-        ctx.drawImage(thisImg,0,-width+(width/7),height,height);
-        ctx.restore();
+        if(!this.rot.deg270){
+            ctx.save();
+            ctx.clearRect(0, 0, width, height);
+            ctx.translate(width,height);
+            ctx.rotate((3*Math.PI)/2);
+            ctx.drawImage(thisImg,0,-width+(width/7),height,height);
+            ctx.restore();
+            this.rot.deg270 = true;
+        } else {
+            this.updateCanvas();
+            this.rot.deg270 = false;
+        }
+
     }
 
     mirror(hori){
@@ -125,15 +149,19 @@ class App extends Component {
         const ctx = canv.getContext('2d');
         const thisImg = this.refs.img;
         ctx.drawImage(thisImg,0,0,width,height);
-        const imgData = ctx.getImageData(0,0,width,height).data;
 
-        for(let i=0;imgData.length;i += 4){
-            const brightness = 0.34 * imgData[i] + 0.5 * imgData[i + 1] + 0.16 * imgData[i + 2];
-            imgData[i] = brightness;
-            imgData[i + 1] = brightness;
-            imgData[i + 2] = brightness;
+        if(!this.state.grayscale){
+            canv.style.filter = "grayscale(1)";
+            this.setState({
+                grayscale: true
+            });
+        } else {
+            canv.style.filter = "none";
+            this.setState({
+                grayscale: false
+            });
         }
-        ctx.putImageData(imgData,0,0,width,height);
+
     }
     render() {
     return (
