@@ -58,8 +58,8 @@ class App extends Component {
             ctx.drawImage(thisImg, 0, 0, window.innerWidth - 100, window.innerHeight - 125);
         };
     }
-    rotate(deg){
-        const pi = 3.1415;
+    rotate90(){
+
         const canv = this.refs.canvas;
         const ctx = canv.getContext('2d');
         const thisImg = this.refs.img;
@@ -67,14 +67,32 @@ class App extends Component {
         const height = window.innerHeight -125;
 
         ctx.clearRect(0, 0, width, height);
-        ctx.rotate((deg*pi)/180);
-        if(deg === 90){
-            ctx.drawImage(thisImg,0,(width*3/4+75)*-1,height,height);
-        } else if(deg === 180){
-            ctx.drawImage(thisImg,width/2,height/2,100,100);
-        } else {
+        ctx.rotate(Math.PI/2);
+        ctx.drawImage(thisImg,0,(width*3/4+75)*-1,height,height);
+    }
+    rotate180(){
+        const canv = this.refs.canvas;
+        const ctx = canv.getContext('2d');
+        const thisImg = this.refs.img;
+        const width = window.innerWidth-100;
+        const height = window.innerHeight -125;
 
-        }
+        ctx.clearRect(0, 0, width, height);
+        ctx.translate(width,height);
+        ctx.rotate(Math.PI);
+        ctx.drawImage(thisImg,0,0,width,height);
+    }
+    rotate270(){
+        const canv = this.refs.canvas;
+        const ctx = canv.getContext('2d');
+        const thisImg = this.refs.img;
+        const width = window.innerWidth-100;
+        const height = window.innerHeight -125;
+
+        ctx.clearRect(0, 0, width, height);
+        ctx.translate(width/2,height);
+        ctx.rotate((3*Math.PI)/2);
+        ctx.drawImage(thisImg,0,0,height,height);
     }
 
     mirror(hori){
@@ -147,28 +165,22 @@ class App extends Component {
                   <ul className="rotate-menu">
                       <li className="rotate-menu--button" onClick={()=>{
                           console.log('90.. need');
-                          this.rotate(90);
+                          this.rotate90();
                       }}>90</li>
                       <li className="rotate-menu--button" onClick={()=>{
                           console.log('180 fok');
-                          this.rotate(180);
+                          this.rotate180();
                       }}>180</li>
                       <li className="rotate-menu--button" onClick={()=>{
                           console.log('270 fok');
-                          this.rotate(270);
+                          this.rotate270();
                       }}>270</li>
                   </ul>
               </div>
               <div ref='mirrorB' id="mirror-box">
                   <ul className="mirror-menu">
-                      <li className="mirror-menu--button" onClick={()=>{
-                          console.log('HOR');
-                          this.mirror(true);
-                      }}>Horizontal</li>
-                      <li className="mirror-menu--button" onClick={()=>{
-                          console.log('VER');
-                          this.mirror(false);
-                      }}>Vertical</li>
+                      <li className="mirror-menu--button" onClick={()=>{this.mirror(true);}}>Horizontal</li>
+                      <li className="mirror-menu--button" onClick={()=>{this.mirror(false);}}>Vertical</li>
                   </ul>
               </div>
               <div ref='effectB' id="effect-box">
